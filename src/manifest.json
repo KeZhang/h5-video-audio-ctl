@@ -17,9 +17,7 @@
   "content_scripts": [
     {
       "matches": [
-        "<all_urls>",
-        "http://*/*",
-        "https://*/*"
+        "https://time.geekbang.org/*"
       ],
       "js": [
         "zepto.min.js",
