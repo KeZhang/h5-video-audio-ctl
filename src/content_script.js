@@ -1,6 +1,6 @@
 var TYPE;
 
-const getDefaultPlayerType = function() {
+const getDefaultPlayerType = function () {
   if ($('audio').length > 0) {
     type = 'audio'
   } else if ($('video').length > 0) {
@@ -9,7 +9,7 @@ const getDefaultPlayerType = function() {
   return type
 }
 
-document.addEventListener("keyup", function(e) {
+document.addEventListener("keyup", function (e) {
 
   if (e.altKey) {
 
@@ -26,6 +26,29 @@ document.addEventListener("keyup", function(e) {
     if (e.code == "KeyS") {
 
       player.controls = !player.controls
+
+      if (player.controls) {
+        console.log(`
+        **********************************************
+        * Welcome to use h5 video/audio controller
+        
+        Alt + S   :   show / hide the control bar, when show start to control, hide to stop control
+        Alt + 1   :   play x1
+        Alt + 2   :   play x1.5
+        Alt + 3   :   play x2
+        
+        > (ArrowRight) : +10s
+        < (ArrowLeft)  : -10s
+        Alt + > (ArrowRight) : +30s
+        Alt + < (ArrowLeft)  : -30s
+        
+        **********************************************
+        `)
+      }
+
+    } else if (e.code == "Space") {
+
+      player.paused ? player.play() : player.pause()
 
     } else if (e.code == "Digit1") {
 
@@ -48,7 +71,7 @@ document.addEventListener("keyup", function(e) {
 })
 
 // forward or backward
-document.addEventListener("keydown", function(e) {
+document.addEventListener("keydown", function (e) {
 
 
   TYPE = getDefaultPlayerType();
@@ -68,20 +91,3 @@ document.addEventListener("keydown", function(e) {
   }
 
 })
-
-console.log(`
-**********************************************
-* Welcome to use h5 video/audio controller
-
-Alt + S   :   show / hide the control bar
-Alt + 1   :   play x1
-Alt + 2   :   play x1.5
-Alt + 3   :   play x2
-
-> (ArrowRight) : +10s
-< (ArrowLeft)  : -10s
-Alt + > (ArrowRight) : +30s
-Alt + < (ArrowLeft)  : -30s
-
-**********************************************
-`)
