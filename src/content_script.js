@@ -41,9 +41,47 @@ document.addEventListener("keyup", function(e) {
 
     }
 
-    console.log(`Player (${TYPE}) speed  ${player.playbackRate }`)
+    // console.log(`Player (${TYPE}) speed  ${player.playbackRate }`)
 
   }
 
+})
+
+// forward or backward
+document.addEventListener("keydown", function(e) {
+
+
+  TYPE = getDefaultPlayerType();
+
+
+  const player = $(TYPE)[0];
+  const step = e.altKey ? 30 : 10;
+
+  if (e.code == "ArrowRight") {
+
+    player.currentTime += step
+
+  } else if (e.code == "ArrowLeft") {
+
+    player.currentTime -= step
+
+  }
 
 })
+
+console.log(`
+**********************************************
+* Welcome to use h5 video/audio controller
+
+Alt + S   :   show / hide the control bar
+Alt + 1   :   play x1
+Alt + 2   :   play x1.5
+Alt + 3   :   play x2
+
+> (ArrowRight) : +10s
+< (ArrowLeft)  : -10s
+Alt + > (ArrowRight) : +30s
+Alt + < (ArrowLeft)  : -30s
+
+**********************************************
+`)
