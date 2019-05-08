@@ -1,9 +1,10 @@
 {
   "name": "h5-video-audio-ctl",
   "description": "h5-video-audio-ctl",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "permissions": [
     "tabs",
+    "file://*/*",
     "http://*/*",
     "https://*/*"
   ],
