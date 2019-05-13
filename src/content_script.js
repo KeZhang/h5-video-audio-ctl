@@ -1,6 +1,7 @@
 var TYPE;
 
 const getDefaultPlayerType = function () {
+  let type = "";
   if ($('audio').length > 0) {
     type = 'audio'
   } else if ($('video').length > 0) {
